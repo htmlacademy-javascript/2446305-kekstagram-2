@@ -13,6 +13,7 @@ const MESSAGES = [
   'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'
 ];
+
 const USERS_NAME = [
   'Адександр',
   'Борис',
@@ -54,7 +55,7 @@ const getData = () => {
   return data;
 }
 
-  const getComments = () => {
+const getComments = () => {
   const comments = [];
   const countComments = getRandomInteger(0, COUNT_COMMENTS);
   for (let i = 0; i <= countComments; i++) {
