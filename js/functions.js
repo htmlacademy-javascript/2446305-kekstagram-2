@@ -15,6 +15,7 @@ function palindrome(string) {
   return string === [...string].reverse().join('');
 }
 
+
 console.log(palindrome(''));
 
 //task 5
