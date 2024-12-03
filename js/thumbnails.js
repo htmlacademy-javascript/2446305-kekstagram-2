@@ -1,11 +1,11 @@
+import { open as openModal } from './modal.js'
 
 const template = document.querySelector('#picture').content.querySelector('.picture');
-const container = document.querySelector('.pictures');
+const containerElement = document.querySelector('.pictures');
 
 
 export const renderThumbnails = (photos) => {
-  console.log('', photos)
-const fragment = document.createDocumentFragment();
+  const fragment = document.createDocumentFragment();
 
   photos.forEach((photo) => {
     const thumbnail = template.cloneNode(true);
@@ -16,7 +16,12 @@ const fragment = document.createDocumentFragment();
     thumbnail.querySelector('.picture__comments').textContent = photo.comments.length;
     thumbnail.querySelector('.picture__likes').textContent = photo.likes;
 
+    thumbnail.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      openModal(photo);
+    })
+
     fragment.append(thumbnail)
   });
-  container.append(fragment)
+  containerElement.append(fragment)
 }
