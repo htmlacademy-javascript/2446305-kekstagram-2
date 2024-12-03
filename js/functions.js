@@ -24,7 +24,7 @@ const MINUTES_IN_HOUR = 60;
 
 const getTimePoint = (time) => {
   const [hour, min] = time.split(':');
-  return hour = MINUTES_IN_HOUR + Number(min)
+  return hour*MINUTES_IN_HOUR + Number(min)
 }
 
 const checkMeeting = (start, end, startMeet, duringMeet) => {
