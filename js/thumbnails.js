@@ -3,8 +3,11 @@ import { open as openModal } from './modal.js'
 const template = document.querySelector('#picture').content.querySelector('.picture');
 const containerElement = document.querySelector('.pictures');
 
+let localData;
 
 export const renderThumbnails = (photos) => {
+  console.log(photos)
+  localData = [...photos]
   const fragment = document.createDocumentFragment();
 
   photos.forEach((photo) => {
@@ -16,12 +19,18 @@ export const renderThumbnails = (photos) => {
     thumbnail.querySelector('.picture__comments').textContent = photo.comments.length;
     thumbnail.querySelector('.picture__likes').textContent = photo.likes;
 
-    thumbnail.addEventListener('click', (evt) => {
-      evt.preventDefault();
-      openModal(photo);
-    })
+    thumbnail.dataset.id = photo.id
 
     fragment.append(thumbnail)
   });
   containerElement.append(fragment)
 }
+
+containerElement.addEventListener('click', ({ target }) => {
+  const card = target.closest('.picture');
+  if (card) {
+    const id = Number(card.dataset.id);
+    const photo = localData.find((item) => item.id === id)
+    openModal(photo);
+  }
+})
