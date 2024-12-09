@@ -1,4 +1,5 @@
 import { isValid, reset as resetValidation } from "./validation.js";
+//import { reset as resetScale } from "./scale.js";
 
 const uploadForm = document.querySelector('.img-upload__form');
 const uploadFile = uploadForm.querySelector('#upload-file');
@@ -20,6 +21,7 @@ const closeForm = () => {
   body.classList.remove('modal-open');
   uploadForm.reset();
   resetValidation();
+  //resetScale();
 };
 
 uploadCancel.addEventListener('click', (evt) => {
