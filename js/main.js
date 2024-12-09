@@ -5,4 +5,3 @@ const data = getData();
 renderThumbnails(data);
 
 
-console.log(new Pristine());
