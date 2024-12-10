@@ -12,10 +12,9 @@ const scaleBigger = document.querySelector('.scale__control--bigger');
 
 let currentScale = SCALE_VALUE_DEFAULT;
 
-
 const render = () => {
   scaleValue.value = `${currentScale}%`;
-  imageUploadPreview.style.transform = `scale(${ currentScale*FACTOR})`
+  imageUploadPreview.style.transform = `scale(${currentScale * FACTOR})`
 }
 
 const onScaleSmallerClick = () => {
