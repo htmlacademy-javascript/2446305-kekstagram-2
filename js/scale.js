@@ -1,5 +1,3 @@
-
-
 const SCALE_VALUE_MIN = 25;
 const SCALE_VALUE_MAX = 100;
 const SCALE_VALUE_STEP = 25;
@@ -9,15 +7,14 @@ const FACTOR = 0.01;
 const scaleValue = document.querySelector('.scale__control--value');
 const imageUploadPreview = document.querySelector('.img-upload__preview');
 const scaleSmaller = document.querySelector('.scale__control--smaller');
-const scaleDigger = document.querySelector('.scale__control--bigger');
+const scaleBigger = document.querySelector('.scale__control--bigger');
 
 
 let currentScale = SCALE_VALUE_DEFAULT;
 
-
 const render = () => {
-  scaleValue.value = `${currentScale}%;
-  imageUploadPreview.style.transform = `scale(${ currentScale*FACTOR})`
+  scaleValue.value = `${currentScale}%`;
+  imageUploadPreview.style.transform = `scale(${currentScale * FACTOR})`
 }
 
 const onScaleSmallerClick = () => {
