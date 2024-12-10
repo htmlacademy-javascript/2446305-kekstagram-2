@@ -21,7 +21,7 @@ const closeForm = () => {
   body.classList.remove('modal-open');
   uploadForm.reset();
   resetValidation();
-  //resetScale();
+  resetScale();
 };
 
 uploadCancel.addEventListener('click', (evt) => {
