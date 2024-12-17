@@ -1,5 +1,6 @@
-import { isValid, reset as resetValidation } from "./validation.js";
-//import { reset as resetScale } from "./scale.js";
+import { isValid, reset as resetValidation } from './validation.js';
+import { reset as resetScale } from './scale.js';
+import { reset as resetEffects } from './effects.js'
 
 const uploadForm = document.querySelector('.img-upload__form');
 const uploadFile = uploadForm.querySelector('#upload-file');
@@ -22,6 +23,7 @@ const closeForm = () => {
   uploadForm.reset();
   resetValidation();
   resetScale();
+  resetEffects ();
 };
 
 uploadCancel.addEventListener('click', (evt) => {
