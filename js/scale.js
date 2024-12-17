@@ -5,7 +5,7 @@ const SCALE_VALUE_DEFAULT = SCALE_VALUE_MAX;
 const FACTOR = 0.01;
 
 const scaleValue = document.querySelector('.scale__control--value');
-const imageUploadPreview = document.querySelector('.img-upload__preview');
+const imageUploadPreview = document.querySelector('.img-upload__preview img');
 const scaleSmaller = document.querySelector('.scale__control--smaller');
 const scaleBigger = document.querySelector('.scale__control--bigger');
 

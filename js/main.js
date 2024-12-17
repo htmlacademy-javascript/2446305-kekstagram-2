@@ -5,3 +5,4 @@ const data = getData();
 renderThumbnails(data);
 
 
+
