@@ -1,3 +1,5 @@
+import { removeEscapeControl, setEscapeControl } from "./escape-control.js";
+
 const modalElement = document.querySelector('.big-picture');
 const closeButtonElement = document.querySelector('.big-picture__cancel');
 const body = document.body;
@@ -22,6 +24,10 @@ const show = () => {
 const hide = () => {
   modalElement.classList.add('hidden');
   body.classList.remove('modal-open');
+};
+
+const close = () => {
+ hide();
 };
 
 const createComment = ({ avatar, name, message }) => {
@@ -78,10 +84,16 @@ export const open = (data) => {
   commentsContainerElement.innerHTML = "";
   render(data);
   show();
-}
+  setEscapeControl(hide);
+
+};
 
 closeButtonElement.addEventListener('click', (evt) => {
   evt.preventDefault();
   modalElement.classList.add('hidden');
-  hide()
-})
+  removeEscapeControl()
+  hide();
+});
+
+
+
