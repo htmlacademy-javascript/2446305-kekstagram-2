@@ -24,7 +24,7 @@ const closeForm = () => {
   resetEffects();
 };
 
-const canCloseForm = () => !(document.activeElement === inputHashtags || activeElement === inputComment)
+const canCloseForm = () => !(document.activeElement === inputHashtags || document.activeElement === inputComment)
 
 const openForm = () => {
   uploadOverlay.classList.remove('hidden');
