@@ -9,3 +9,13 @@ export const showErrorMessage = () => {
     newDataError.remove();
   }, 5000)
 }
+
+function debounce(callback, timeoutDelay = 500) {
+  let timeoutId;
+  return function() {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => callback(...arguments), timeoutDelay)
+  };
+}
+
+export {debounce};
