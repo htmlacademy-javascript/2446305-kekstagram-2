@@ -77,4 +77,12 @@ export const POPUPS = {
 export const SUBMIT_TEXTS = {
   IDLE: 'Опубликовать',
   SENDING: 'Публикую...'
-}
+};
+
+export const FILTERS = {
+  DEFAULT: 'filter-default',
+  RANDOM: 'filter-random',
+  DISCUSSED: 'filter-discussed'
+};
+
+export const ACTIVE_BUTTON = 'img-filters__button--active';

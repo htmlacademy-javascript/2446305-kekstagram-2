@@ -7,6 +7,7 @@ import { configFilter } from './filter.js';
 getData()
    .then((data) => {
     renderThumbnails(data);
+    configFilter(data);
    })
   .catch(() => {
     showErrorMessage();

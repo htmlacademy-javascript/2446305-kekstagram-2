@@ -7,7 +7,7 @@ export const showErrorMessage = () => {
   body.append(newDataError);
   setTimeout(() => {
     newDataError.remove();
-  }, 5000)
+  }, showTime)
 }
 
 function debounce(callback, timeoutDelay = 500) {
