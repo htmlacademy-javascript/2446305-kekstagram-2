@@ -1,10 +1,12 @@
 import { isValid, reset as resetValidation } from './validation.js';
 import { reset as resetScale } from './scale.js';
-import { reset as resetEffects } from './effects.js'
+import { reset as resetEffects } from './effects.js';
 import { showPopup } from './popup.js';
 import { POPUPS, SUBMIT_TEXTS } from './constants.js';
 import { sendData } from './api.js';
 import { removeEscapeControl, setEscapeControl } from './escape-control.js';
+
+const FILE_TYPES = ['jpg', 'jpeg', 'png', 'gif', 'jfif'];
 
 const uploadForm = document.querySelector('.img-upload__form');
 const uploadFile = uploadForm.querySelector('#upload-file');
@@ -24,13 +26,27 @@ const closeForm = () => {
   resetEffects();
 };
 
-const canCloseForm = () => !(document.activeElement === inputHashtags || document.activeElement === inputComment)
+const canCloseForm = () => !(document.activeElement === inputHashtags || document.activeElement === inputComment);
 
 const openForm = () => {
   uploadOverlay.classList.remove('hidden');
   body.classList.add('modal-open');
   setEscapeControl(closeForm, canCloseForm);
-}
+};
+
+const onFileInputChange = () => {
+  const file = uploadFile.files[0];
+  const fileName = file.name.toLowerCase();
+  const matches = FILE_TYPES.some((item) => fileName.endsWith(item));
+  if (matches) {
+    const url = URL.createObjectURL(file);
+    uploadPreview.src = url;
+    uploadPreviewEffects.forEach((item) => {
+      item.style.backgroundImage = `url(${url})`;
+    });
+  }
+  openForm();
+};
 
 uploadFile.addEventListener('change', () => {
   openForm();
@@ -42,18 +58,10 @@ uploadCancel.addEventListener('click', (evt) => {
   removeEscapeControl();
 });
 
-/*document.addEventListener('keydown', (evt) => {
-  if (evt.key === 'Escape') {
-    evt.preventDefault();
-    closeForm();
-  }
-});/*/
-
-
 const blockSubmit = (isBlocked = true) => {
   submitButton.disabled = isBlocked;
   submitButton.textContent = isBlocked ? SUBMIT_TEXTS.SENDING : SUBMIT_TEXTS.IDLE;
-}
+};
 
 const onFormSubmit = (evt) => {
   evt.preventDefault();
@@ -64,7 +72,7 @@ const onFormSubmit = (evt) => {
     sendData(new FormData(uploadForm))
       .then((response) => {
         if (!response.ok) {
-          throw new Error()
+          throw new Error();
         }
         closeForm();
         removeEscapeControl();
@@ -76,7 +84,7 @@ const onFormSubmit = (evt) => {
       })
       .finally(() => {
         blockSubmit(false);
-      })
+      });
   }
 };
 

@@ -27,7 +27,7 @@ const checkHashtags = (value) => {
     return true;
   }
   const hashTags = createHashtags(value);
-  return hashTags.every((hashtag) => HASHTAG_FORMULA.test(hashtag))
+  return hashTags.every((hashtag) => HASHTAG_FORMULA.test(hashtag));
 };
 
 const checkHashtagsCount = (value) => {
@@ -43,9 +43,9 @@ const checkUniqueHashtags = (value) => {
     return true;
   }
   const hashTags = createHashtags(value);
-  const uniques = [...new Set (hashTags)]
+  const uniques = [...new Set (hashTags)];
   return hashTags.length === uniques.length;
-}
+};
 
 pristine.addValidator(
   inputHashtags,
@@ -73,6 +73,3 @@ pristine.addValidator(
 
 export const isValid = () => pristine.validate();
 export const reset = () => pristine.reset();
-
-
-

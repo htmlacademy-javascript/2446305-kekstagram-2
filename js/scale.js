@@ -14,18 +14,18 @@ let currentScale = SCALE_VALUE_DEFAULT;
 
 const render = () => {
   scaleValue.value = `${currentScale}%`;
-  imageUploadPreview.style.transform = `scale(${currentScale * FACTOR})`
-}
+  imageUploadPreview.style.transform = `scale(${currentScale * FACTOR})`;
+};
 
 const onScaleSmallerClick = () => {
   currentScale = currentScale > SCALE_VALUE_MIN ? currentScale - SCALE_VALUE_STEP : SCALE_VALUE_MIN;
   render();
-}
+};
 
 const onScaleBiggerClick = () => {
   currentScale = currentScale < SCALE_VALUE_MAX ? currentScale + SCALE_VALUE_STEP : SCALE_VALUE_MAX;
   render();
-}
+};
 
 scaleSmaller.addEventListener('click', onScaleSmallerClick);
 scaleBigger.addEventListener('click', onScaleBiggerClick);
@@ -33,6 +33,6 @@ scaleBigger.addEventListener('click', onScaleBiggerClick);
 export const reset = () => {
   currentScale = SCALE_VALUE_DEFAULT;
   render();
-}
+};
 
 reset();

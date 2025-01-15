@@ -1,4 +1,4 @@
-import { removeEscapeControl, setEscapeControl } from "./escape-control.js";
+import { removeEscapeControl, setEscapeControl } from './escape-control.js';
 
 const modalElement = document.querySelector('.big-picture');
 const closeButtonElement = document.querySelector('.big-picture__cancel');
@@ -19,7 +19,7 @@ let renderedCommentsCount = 0;
 const show = () => {
   modalElement.classList.remove('hidden');
   body.classList.add('modal-open');
-}
+};
 
 const hide = () => {
   modalElement.classList.add('hidden');
@@ -27,7 +27,7 @@ const hide = () => {
 };
 
 const close = () => {
- hide();
+  hide();
 };
 
 const createComment = ({ avatar, name, message }) => {
@@ -38,11 +38,11 @@ const createComment = ({ avatar, name, message }) => {
   newComment.querySelector('.social__text').textContent = message;
 
   return newComment;
-}
+};
 
 const renderStatistic = () => {
   renderedCommentsCountElement.textContent = renderedCommentsCount;
-}
+};
 
 const renderLoader = () => {
   if (localComments.length) {
@@ -50,7 +50,7 @@ const renderLoader = () => {
   } else {
     loaderElement.classList.add('hidden');
   }
-}
+};
 
 const renderComments = () => {
   const fragment = document.createDocumentFragment();
@@ -63,11 +63,11 @@ const renderComments = () => {
 
   renderStatistic();
   renderLoader();
-}
+};
 
 loaderElement.addEventListener('click', () => {
   renderComments();
-})
+});
 
 const render = ({ url, description, likes, comments }) => {
   imageElement.src = url;
@@ -76,12 +76,12 @@ const render = ({ url, description, likes, comments }) => {
   totalCommentsElement.textContent = comments.length;
   localComments = [...comments];
   renderedCommentsCount = 0;
-  renderComments()
+  renderComments();
 
 };
 
 export const open = (data) => {
-  commentsContainerElement.innerHTML = "";
+  commentsContainerElement.innerHTML = '';
   render(data);
   show();
   setEscapeControl(hide);
@@ -91,9 +91,6 @@ export const open = (data) => {
 closeButtonElement.addEventListener('click', (evt) => {
   evt.preventDefault();
   modalElement.classList.add('hidden');
-  removeEscapeControl()
+  removeEscapeControl();
   hide();
 });
-
-
-
