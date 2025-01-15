@@ -5,8 +5,12 @@ const containerElement = document.querySelector('.pictures');
 
 let localData;
 
+const clear = () => {
+  document.querySelectorAll('.picture').forEach((item) => item.remove());
+}
+
 export const renderThumbnails = (photos) => {
-  console.log(photos)
+  clear();
   localData = [...photos]
   const fragment = document.createDocumentFragment();
 
