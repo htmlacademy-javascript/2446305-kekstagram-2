@@ -28,7 +28,7 @@ const FiltersActions = {
   [FILTERS.DEFAULT]: () => pictures,
   [FILTERS.RANDOM]: () => pictures.toSorted(() => 0.5 - Math.random()).slice(0, 10),
   [FILTERS.DISCUSSED]: () => pictures.toSorted((a, b) => b.comments.length - a.comments.length)
-}
+};
 
 function applyFilter() {
   let filterPictures = FiltersActions[currentFilter]();
@@ -37,7 +37,7 @@ function applyFilter() {
 
 export const configFilter = (picturesData) => {
   filterElement.classList.remove('img-filters--inactive');
-  filterElement.addEventListener('click', onFilterChange);
   pictures = picturesData;
 };
 
+filterElement.addEventListener('click', onFilterChange);

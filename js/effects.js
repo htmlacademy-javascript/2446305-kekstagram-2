@@ -1,4 +1,4 @@
-import { DEFAULT_EFFECT, EffectsSetting } from "./constants.js";
+import { DEFAULT_EFFECT, EffectsSetting } from './constants.js';
 
 const effectsList = document.querySelector('.effects__list');
 const sliderContainer = document.querySelector('.effect-level__slider');
@@ -24,7 +24,7 @@ const render = () => {
 };
 
 const updateSlider = () => {
-  const { min, max, step } = EffectsSetting[currentEffect]
+  const { min, max, step } = EffectsSetting[currentEffect];
   sliderContainer.noUiSlider.updateOptions({
     range: {
       min,
@@ -33,7 +33,7 @@ const updateSlider = () => {
     step,
     start: max
   });
-}
+};
 
 sliderContainer.noUiSlider.on('update', () => {
   value.value = sliderContainer.noUiSlider.get();
@@ -41,14 +41,14 @@ sliderContainer.noUiSlider.on('update', () => {
 });
 
 export const reset = () => {
-  imageUploadPreview.style.filter = "";
+  imageUploadPreview.style.filter = '';
   sliderBlock.classList.add('hidden');
-}
+};
 
 effectsList.addEventListener('change', ({ target }) => {
   currentEffect = target.value;
   if(currentEffect === DEFAULT_EFFECT){
-    reset()
+    reset();
   }else{
     updateSlider();
     sliderBlock.classList.remove('hidden');

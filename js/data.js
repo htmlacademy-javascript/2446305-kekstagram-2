@@ -1,4 +1,4 @@
-import {getRandomInteger} from './util.js';
+import { getRandomInteger } from './util.js';
 
 const COUNT_PHOTOS = 25;
 const MIN_LIKES = 15;
@@ -33,10 +33,10 @@ const getComments = () => {
       avatar: `img/avatar-${getRandomInteger(MIN_AVATAR, MAX_AVATAR)}.svg`,
       message: MESSAGES[getRandomInteger(0, MESSAGES.length - 1)],
       name: USERS_NAME[getRandomInteger(0, USERS_NAME.length - 1)],
-    })
+    });
   }
   return comments;
-}
+};
 
 const getPhoto = (i) => {
   return {
@@ -45,8 +45,8 @@ const getPhoto = (i) => {
     description: DESCRIPTIONS[getRandomInteger(0, DESCRIPTIONS.length - 1)],
     likes: getRandomInteger(MIN_LIKES, MAX_LIKES),
     comments: getComments()
-  }
-}
+  };
+};
 
 const getData = () => {
   const data = [];
@@ -54,6 +54,6 @@ const getData = () => {
     data.push(getPhoto(i));
   }
   return data;
-}
+};
 
-export {getData}
+export { getData };
