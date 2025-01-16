@@ -20,7 +20,7 @@ export const showPopup = (type) => {
     }
   });
 
- setEscapeControl(() => {
+  setEscapeControl(() => {
     newPopup.remove();
   });
 };
