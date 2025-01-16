@@ -86,3 +86,9 @@ export const FILTERS = {
 };
 
 export const ACTIVE_BUTTON = 'img-filters__button--active';
+
+export const MAX_SYMBOL = 140;
+export const SPACE = /\s+/g;
+export const HASHTAG_FORMULA = /^#[A-Za-zА-Яа-яёЁ0-9]{1,19}$/;
+export const MAX_HASHTAGS = 5;
+export const ONE_SPACE = ' ';

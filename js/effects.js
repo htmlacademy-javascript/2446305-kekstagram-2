@@ -15,11 +15,19 @@ noUiSlider.create(sliderContainer, {
   },
   start: 80,
   step: 1,
+  format: {
+    to: function (value) {
+      return parseFloat(value);
+    },
+    from: function (value) {
+      return parseFloat(value);
+    }
+  },
   connect: 'lower',
 });
 
 const render = () => {
-  const {style, units} = EffectsSetting[currentEffect];
+  const { style, units } = EffectsSetting[currentEffect];
   imageUploadPreview.style.filter = `${style}(${value.value}${units})`;
 };
 
@@ -47,9 +55,9 @@ export const reset = () => {
 
 effectsList.addEventListener('change', ({ target }) => {
   currentEffect = target.value;
-  if(currentEffect === DEFAULT_EFFECT){
+  if (currentEffect === DEFAULT_EFFECT) {
     reset();
-  }else{
+  } else {
     updateSlider();
     sliderBlock.classList.remove('hidden');
   }

@@ -17,8 +17,8 @@ const submitButton = uploadForm.querySelector('.img-upload__submit');
 const body = document.body;
 const inputHashtags = uploadForm.querySelector('.text__hashtags');
 const inputComment = uploadForm.querySelector('.text__description');
-const uploadPreview = uploadForm.querySelector('.img-upload__preview');
-const uploadPreviewEffects = uploadForm.querySelector('.effects__preview');
+const uploadPreview = uploadForm.querySelector('.img-upload__preview img');
+const uploadPreviewEffects = uploadForm.querySelectorAll('.effects__preview');
 
 const closeForm = () => {
   uploadOverlay.classList.add('hidden');
