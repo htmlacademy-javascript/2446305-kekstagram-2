@@ -9,7 +9,6 @@ const imageUploadPreview = document.querySelector('.img-upload__preview img');
 const scaleSmaller = document.querySelector('.scale__control--smaller');
 const scaleBigger = document.querySelector('.scale__control--bigger');
 
-
 let currentScale = SCALE_VALUE_DEFAULT;
 
 const render = () => {

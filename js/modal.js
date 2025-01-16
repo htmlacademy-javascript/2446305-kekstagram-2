@@ -26,10 +26,6 @@ const hide = () => {
   body.classList.remove('modal-open');
 };
 
-/*const close = () => {
-  hide();
-};*/
-
 const createComment = ({ avatar, name, message }) => {
   const newComment = commentElement.cloneNode(true);
   const avatarElement = newComment.querySelector('.social__picture');

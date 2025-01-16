@@ -1,7 +1,4 @@
-const MAX_SYMBOL = 140;
-const SPACE = /\s+/g;
-const HASHTAG_FORMULA = /^#[a-zа-яё0-9]{1,19}$/;
-const MAX_HASHTAGS = 5;
+import {MAX_SYMBOL, SPACE, HASHTAG_FORMULA, MAX_HASHTAGS, ONE_SPACE} from './constants.js';
 
 const uploadForm = document.querySelector('.img-upload__form');
 const inputHashtags = uploadForm.querySelector('.text__hashtags');
@@ -15,9 +12,9 @@ const pristine = new Pristine(uploadForm, {
 
 const createHashtags = (value) => value
   .toLowerCase()
-  .replaceAll(SPACE, '')
+  .replaceAll(SPACE, ONE_SPACE)
   .trim()
-  .split(' ')
+  .split(ONE_SPACE)
   .filter((item) => item !== '');
 
 const checkDescription = (value) => value.length <= MAX_SYMBOL;
