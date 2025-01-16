@@ -16,11 +16,11 @@ noUiSlider.create(sliderContainer, {
   start: 80,
   step: 1,
   format: {
-    to: function (value) {
-      return parseFloat(value);
+    to: function (val) {
+      return parseFloat(val);
     },
-    from: function (value) {
-      return parseFloat(value);
+    from: function (val) {
+      return parseFloat(val);
     }
   },
   connect: 'lower',

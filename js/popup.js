@@ -13,14 +13,14 @@ const templates = {
 export const showPopup = (type) => {
   const newPopup = templates[type].cloneNode(true);
   body.append(newPopup);
-  newPopup.addEventListener('click', ({target}) => {
+  newPopup.addEventListener('click', ({ target }) => {
     if (target.classList.contains(type) || target.classList.contains(`${type}__button`)) {
       newPopup.remove();
       removeEscapeControl();
     }
   });
-  
-  setEscapeControl(() => {
+
+ setEscapeControl(() => {
     newPopup.remove();
   });
 };
