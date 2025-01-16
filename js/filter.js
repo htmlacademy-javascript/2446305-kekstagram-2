@@ -31,7 +31,7 @@ const FiltersActions = {
 };
 
 function applyFilter() {
-  let filterPictures = FiltersActions[currentFilter]();
+  const filterPictures = FiltersActions[currentFilter]();
   debounceRender(filterPictures);
 }
 

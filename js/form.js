@@ -10,12 +10,15 @@ const FILE_TYPES = ['jpg', 'jpeg', 'png', 'gif', 'jfif'];
 
 const uploadForm = document.querySelector('.img-upload__form');
 const uploadFile = uploadForm.querySelector('#upload-file');
+const uploadFileInput = uploadForm.querySelector('.img-upload__input');
 const uploadOverlay = uploadForm.querySelector('.img-upload__overlay');
 const uploadCancel = uploadForm.querySelector('.img-upload__cancel');
 const submitButton = uploadForm.querySelector('.img-upload__submit');
 const body = document.body;
 const inputHashtags = uploadForm.querySelector('.text__hashtags');
 const inputComment = uploadForm.querySelector('.text__description');
+const uploadPreview = uploadForm.querySelector('.img-upload__preview');
+const uploadPreviewEffects = uploadForm.querySelector('.effects__preview');
 
 const closeForm = () => {
   uploadOverlay.classList.add('hidden');
@@ -35,8 +38,9 @@ const openForm = () => {
 };
 
 const onFileInputChange = () => {
-  const file = uploadFile.files[0];
+  const file = uploadFileInput.files[0];
   const fileName = file.name.toLowerCase();
+
   const matches = FILE_TYPES.some((item) => fileName.endsWith(item));
   if (matches) {
     const url = URL.createObjectURL(file);
@@ -44,13 +48,14 @@ const onFileInputChange = () => {
     uploadPreviewEffects.forEach((item) => {
       item.style.backgroundImage = `url(${url})`;
     });
+  } else {
+    return;
   }
+
   openForm();
 };
 
-uploadFile.addEventListener('change', () => {
-  openForm();
-});
+uploadFile.addEventListener('change', onFileInputChange);
 
 uploadCancel.addEventListener('click', (evt) => {
   evt.preventDefault();

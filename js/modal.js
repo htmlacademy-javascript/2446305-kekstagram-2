@@ -26,9 +26,9 @@ const hide = () => {
   body.classList.remove('modal-open');
 };
 
-const close = () => {
+/*const close = () => {
   hide();
-};
+};*/
 
 const createComment = ({ avatar, name, message }) => {
   const newComment = commentElement.cloneNode(true);
