@@ -1,5 +1,7 @@
 import { removeEscapeControl, setEscapeControl } from './escape-control.js';
 
+const COMMENTS_STEP = 5;
+
 const modalElement = document.querySelector('.big-picture');
 const closeButtonElement = document.querySelector('.big-picture__cancel');
 const body = document.body;
@@ -12,7 +14,6 @@ const commentElement = modalElement.querySelector('.social__comment');
 const renderedCommentsCountElement = modalElement.querySelector('.social__comment-shown-count');
 const loaderElement = modalElement.querySelector('.comments-loader');
 
-const COMMENTS_STEP = 5;
 let localComments;
 let renderedCommentsCount = 0;
 
