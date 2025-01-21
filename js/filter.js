@@ -35,7 +35,7 @@ function applyFilter() {
   debounceRender(filterPictures);
 }
 
-export const getFilter = (picturesData) => {
+export const setFilter = (picturesData) => {
   filterElement.classList.remove('img-filters--inactive');
   pictures = picturesData;
 };
